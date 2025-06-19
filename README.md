@@ -1,50 +1,28 @@
 ├── LICENSE
-├── Makefile                 <- makeコマンドで操作するためのファイル（例: make train, make data）
-├── README.md                <- プロジェクトのトップレベル README
+├── Makefile                 # make train, make data などのコマンドを定義
+├── README.md                # プロジェクトのトップレベル説明書
 ├── data
-│   ├── external             <- 外部提供の生データ
-│   ├── interim              <- 中間データ（前処理途中）
-│   ├── processed            <- モデルに使う最終的なデータ
-│   └── raw                  <- 変換前の元データ（変更しない）
-│
-├── docs                     <- Sphinx ドキュメントプロジェクト
-│
-├── models                   <- 学習済みモデル・予測結果・モデルのサマリーなど
-│
-├── notebooks                <- Jupyter Notebookファイル（命名例: `1.0-jqp-initial-data-exploration`）
-│
-├── references               <- 仕様書、マニュアル、データ辞書など
-│
+│   ├── external             # 外部提供の生データ
+│   ├── interim              # 前処理途中の中間データ
+│   ├── processed            # モデル学習・予測に使う最終データ
+│   └── raw                  # 元の生データ（編集しない）
+├── docs                     # Sphinxドキュメント
+├── models                   # 学習済みモデル・結果など
+├── notebooks                # Jupyter Notebookファイル
+├── references               # 仕様書、マニュアル、データ辞書など
 ├── reports
-│   └── figures              <- グラフ・図などの出力物
-│
-├── requirements.txt         <- pipで環境を再現するためのパッケージリスト
-├── setup.py                 <- `pip install -e .` によって src をモジュールとして読み込ませるための設定
-│
-├── src
+│   └── figures              # 図表・グラフなど
+├── requirements.txt         # pipで使う依存パッケージリスト
+├── setup.py                 # `pip install -e .` のための設定ファイル
+├── src                      # ソースコード本体
 │   ├── __init__.py
-│   ├── train.py             <- モデル切り替え可能なメインの学習スクリプト
-│   │
+│   ├── train.py             # モデル学習スクリプト
 │   ├── data
-│   │   └── make_dataset.py  <- データ取得・前処理など
-│   │
-│   ├── models               <- モデル定義・切り替え可能な構造
-│   │   ├── base             <- 抽象基底クラスと共通前処理
-│   │   │   ├── __init__.py
-│   │   │   ├── model.py     <- `BaseModel`クラスなど
-│   │   │   └── preprocess.py
-│   │   │
-│   │   ├── lightgbm         <- LightGBM用モデル・前処理ロジック
-│   │   │   ├── __init__.py
-│   │   │   ├── model.py
-│   │   │   └── preprocess.py
-│   │   │
-│   │   └── cnn              <- CNN（例: Keras/TensorFlow）用ロジック
-│   │       ├── __init__.py
-│   │       ├── model.py
-│   │       └── preprocess.py
-│   │
+│   │   └── make_dataset.py  # データ取得・前処理スクリプト
+│   ├── models               # モデル定義と切り替え可能な構造
+│   │   ├── base             # 基底モデル・共通前処理
+│   │   ├── lightgbm         # LightGBMモデル関連
+│   │   └── cnn              # CNNモデル関連（Kerasなど）
 │   └── visualization
-│       └── visualize.py     <- 可視化・分析用スクリプト
-│
-└── tox.ini                  <- テストやLintの設定（tox用）
+│       └── visualize.py     # 可視化スクリプト
+└── tox.ini                  # テストやLintの設定

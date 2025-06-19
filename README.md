@@ -1,61 +1,50 @@
-# zebrafish_behavior_analysis
-
-<a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
-    <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
-</a>
-
-analysis
-
-## Project Organization
-
-```
-├── LICENSE            <- Open-source license if one is chosen
-├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
-├── README.md          <- The top-level README for developers using this project.
+├── LICENSE
+├── Makefile                 <- makeコマンドで操作するためのファイル（例: make train, make data）
+├── README.md                <- プロジェクトのトップレベル README
 ├── data
-│   ├── external       <- Data from third party sources.
-│   ├── interim        <- Intermediate data that has been transformed.
-│   ├── processed      <- The final, canonical data sets for modeling.
-│   └── raw            <- The original, immutable data dump.
+│   ├── external             <- 外部提供の生データ
+│   ├── interim              <- 中間データ（前処理途中）
+│   ├── processed            <- モデルに使う最終的なデータ
+│   └── raw                  <- 変換前の元データ（変更しない）
 │
-├── docs               <- A default mkdocs project; see www.mkdocs.org for details
+├── docs                     <- Sphinx ドキュメントプロジェクト
 │
-├── models             <- Trained and serialized models, model predictions, or model summaries
+├── models                   <- 学習済みモデル・予測結果・モデルのサマリーなど
 │
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`.
+├── notebooks                <- Jupyter Notebookファイル（命名例: `1.0-jqp-initial-data-exploration`）
 │
-├── pyproject.toml     <- Project configuration file with package metadata for 
-│                         zebrafish_behavior_analysis and configuration for tools like black
+├── references               <- 仕様書、マニュアル、データ辞書など
 │
-├── references         <- Data dictionaries, manuals, and all other explanatory materials.
+├── reports
+│   └── figures              <- グラフ・図などの出力物
 │
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
+├── requirements.txt         <- pipで環境を再現するためのパッケージリスト
+├── setup.py                 <- `pip install -e .` によって src をモジュールとして読み込ませるための設定
 │
-├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
+├── src
+│   ├── __init__.py
+│   ├── train.py             <- モデル切り替え可能なメインの学習スクリプト
+│   │
+│   ├── data
+│   │   └── make_dataset.py  <- データ取得・前処理など
+│   │
+│   ├── models               <- モデル定義・切り替え可能な構造
+│   │   ├── base             <- 抽象基底クラスと共通前処理
+│   │   │   ├── __init__.py
+│   │   │   ├── model.py     <- `BaseModel`クラスなど
+│   │   │   └── preprocess.py
+│   │   │
+│   │   ├── lightgbm         <- LightGBM用モデル・前処理ロジック
+│   │   │   ├── __init__.py
+│   │   │   ├── model.py
+│   │   │   └── preprocess.py
+│   │   │
+│   │   └── cnn              <- CNN（例: Keras/TensorFlow）用ロジック
+│   │       ├── __init__.py
+│   │       ├── model.py
+│   │       └── preprocess.py
+│   │
+│   └── visualization
+│       └── visualize.py     <- 可視化・分析用スクリプト
 │
-├── setup.cfg          <- Configuration file for flake8
-│
-└── zebrafish_behavior_analysis   <- Source code for use in this project.
-    │
-    ├── __init__.py             <- Makes zebrafish_behavior_analysis a Python module
-    │
-    ├── config.py               <- Store useful variables and configuration
-    │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
-    ├── features.py             <- Code to create features for modeling
-    │
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
-    │   └── train.py            <- Code to train models
-    │
-    └── plots.py                <- Code to create visualizations
-```
-
---------
-
+└── tox.ini                  <- テストやLintの設定（tox用）

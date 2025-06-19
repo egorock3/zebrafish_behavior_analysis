@@ -1,0 +1,16 @@
+2025-06-17 15:26:55,851 - INFO - Logging to: C:\zebrafish_behavior_analysis\results/XGBoost\xgboost_optimizer_20250617_152655.log
+2025-06-17 15:26:55,851 - INFO - Loaded Experiment Config: {'paths': {'base_data_path': 'data/processed/', 'base_results_path': 'results/'}, 'general': {'k_fold_num': 5, 'repeat_num': 1, 'target_label_column': 'label'}, 'XGBoost': {'n_estimators': 100, 'max_depth': 7, 'max_leaves': 127, 'gamma': 0.0, 'objective': 'multi:softmax', 'eval_metric': 'mlogloss', 'early_stopping_rounds': 10, 'verbose': False, 'seed': 42}, 'datasets_to_train': [{'filename': 'zebrafish_features_processed_sample.csv', 'time_window': 5, 'step_size': 3}]}
+2025-06-17 15:26:55,864 - INFO - 
+--- Processing dataset: zebrafish_features_processed_sample.csv (TW:5, SS:3) ---
+2025-06-17 15:26:55,864 - INFO - Generated hyper params for trial: {'n_estimators': 100, 'max_depth': 7, 'max_leaves': 127, 'gamma': 0.0, 'objective': 'multi:softmax', 'eval_metric': 'mlogloss', 'seed': 42}
+2025-06-17 15:26:55,864 - INFO - Running repeat 1/1...
+2025-06-17 15:26:55,864 - INFO - Loading data from: C:\zebrafish_behavior_analysis\data/processed/zebrafish_features_processed_sample.csv
+2025-06-17 15:26:55,879 - INFO - Data loaded. Features shape: (3529, 13), Labels shape: (3529,), Classes: 8
+2025-06-17 15:26:55,881 - INFO - Full training set shape: (2470, 13), Test set shape: (1059, 13)
+2025-06-17 15:26:55,882 - INFO - Starting 5-Fold Cross Validation...
+2025-06-17 15:26:55,882 - INFO - --- Fold 1/5 ---
+2025-06-17 15:26:56,066 - INFO - --- Fold 2/5 ---
+2025-06-17 15:26:56,242 - INFO - --- Fold 3/5 ---
+2025-06-17 15:26:56,423 - INFO - --- Fold 4/5 ---
+2025-06-17 15:26:56,592 - INFO - --- Fold 5/5 ---
+2025-06-17 15:26:56,983 - INFO - Final model saved to C:\zebrafish_behavior_analysis\results/XGBoost\XGBoost_zebrafish_features_processed_sample_results\trial_1_repeat_1\XGBoost_final_model.json

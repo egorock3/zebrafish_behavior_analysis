@@ -1,0 +1,25 @@
+# config/experiment_config.yaml
+paths:
+  # データパスは、プロジェクトルートからの相対パスで記述する方が一般的でポータブル
+  base_data_path: "data/processed/" 
+  base_results_path: "results/" 
+
+general:
+  k_fold_num: 5
+  repeat_num: 1
+  target_label_column: "label" # データフレーム内のラベル列の名前
+
+# XGBoostのハイパーパラメータの定義（今回は固定値で動作確認）
+XGBoost:
+  base_result_path: results/XGBoost
+  k_fold_num: 5
+  repeat: 2
+  univariate_data_path: data/processed
+
+
+# 訓練に使用するデータセットのリスト
+# 各要素はファイル名と、それに紐づくタイムウィンドウ/ステップサイズのパラメータ
+datasets_to_train:
+  - filename: "zebrafish_features_processed_sample.csv" # より一般的なファイル名
+    time_window: 5
+    step_size: 3
